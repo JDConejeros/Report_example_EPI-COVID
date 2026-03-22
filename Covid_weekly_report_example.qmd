@@ -1,0 +1,72 @@
+---
+title: "COVID-19 Weekly Situation Report"
+author: 
+- name: "José Daniel Conejeros"
+  email: jo.conejeros@gmail.com
+  corresponding: true
+  affiliations: "BIO‑Fulbright Scholar | Lagrange Fellow ISI Foundation"
+date: last-modified
+date-format: long
+title-block-banner: "rgb(10, 62, 114)"
+format:
+  html:
+    self-contained: true
+    page-layout: full
+    embed-resources: true
+    smooth-scroll: true
+    fontcolor: black
+    toc: true
+    toc-location: left
+    toc-title: Indice
+    code-copy: true
+    code-link: true
+    code-fold: true
+    code-tools: true
+    code-summary: "Click to see the code"
+    anchor-sections: true
+    code-overflow: wrap
+    fig-cap-location: top
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=0.75in
+fig-width: 6
+fig-height: 3
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+# Load core packages for data import, cleaning, analysis, mapping, and reporting.
+# Function install/load packages
+install_load <- function(packages){
+  for (i in packages) {
+    if (i %in% rownames(installed.packages())) {
+      library(i, character.only=TRUE)
+    } else {
+      install.packages(i)
+      library(i, character.only = TRUE)
+    }
+  }
+}
+
+# Apply function
+install_load(c("rio", 
+               "tidyverse",
+               "here",
+               "janitor",
+               "lubridate",
+               "sf", 
+               "ggmap", 
+               "maptiles",
+               "ggspatial",
+               "terra",
+               "tidyr",
+               "tidyterra",
+               "EpiNow2",
+               "gt", 
+               "zoo"
+               ))
+```
